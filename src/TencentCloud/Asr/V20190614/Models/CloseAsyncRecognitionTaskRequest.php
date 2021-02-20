@@ -18,20 +18,20 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 录音文件识别、实时语音异步识别请求的返回数据
+ * CloseAsyncRecognitionTask请求参数结构体
  *
- * @method integer getTaskId() 获取任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
- * @method void setTaskId(integer $TaskId) 设置任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+ * @method integer getTaskId() 获取语音流异步识别任务的唯一标识，在创建任务时会返回
+ * @method void setTaskId(integer $TaskId) 设置语音流异步识别任务的唯一标识，在创建任务时会返回
  */
-class Task extends AbstractModel
+class CloseAsyncRecognitionTaskRequest extends AbstractModel
 {
     /**
-     * @var integer 任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+     * @var integer 语音流异步识别任务的唯一标识，在创建任务时会返回
      */
     public $TaskId;
 
     /**
-     * @param integer $TaskId 任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+     * @param integer $TaskId 语音流异步识别任务的唯一标识，在创建任务时会返回
      */
     function __construct()
     {

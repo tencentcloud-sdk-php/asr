@@ -18,20 +18,28 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 录音文件识别、实时语音异步识别请求的返回数据
+ * 音频流异步识别任务信息
  *
- * @method integer getTaskId() 获取任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
- * @method void setTaskId(integer $TaskId) 设置任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+ * @method integer getTaskId() 获取任务ID
+ * @method void setTaskId(integer $TaskId) 设置任务ID
+ * @method string getUrl() 获取音频流Url
+ * @method void setUrl(string $Url) 设置音频流Url
  */
-class Task extends AbstractModel
+class AsyncRecognitionTaskInfo extends AbstractModel
 {
     /**
-     * @var integer 任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+     * @var integer 任务ID
      */
     public $TaskId;
 
     /**
-     * @param integer $TaskId 任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+     * @var string 音频流Url
+     */
+    public $Url;
+
+    /**
+     * @param integer $TaskId 任务ID
+     * @param string $Url 音频流Url
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class Task extends AbstractModel
         }
         if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
             $this->TaskId = $param["TaskId"];
+        }
+
+        if (array_key_exists("Url",$param) and $param["Url"] !== null) {
+            $this->Url = $param["Url"];
         }
     }
 }

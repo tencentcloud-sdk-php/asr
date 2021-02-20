@@ -18,20 +18,24 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 录音文件识别、实时语音异步识别请求的返回数据
+ * 音频流异步识别任务列表
  *
- * @method integer getTaskId() 获取任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
- * @method void setTaskId(integer $TaskId) 设置任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+ * @method array getTasks() 获取任务列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTasks(array $Tasks) 设置任务列表
+注意：此字段可能返回 null，表示取不到有效值。
  */
-class Task extends AbstractModel
+class AsyncRecognitionTasks extends AbstractModel
 {
     /**
-     * @var integer 任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+     * @var array 任务列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $TaskId;
+    public $Tasks;
 
     /**
-     * @param integer $TaskId 任务ID，可通过此ID在轮询接口获取识别状态与结果。注意：TaskId数据类型为uint64
+     * @param array $Tasks 任务列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -46,8 +50,13 @@ class Task extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
-            $this->TaskId = $param["TaskId"];
+        if (array_key_exists("Tasks",$param) and $param["Tasks"] !== null) {
+            $this->Tasks = [];
+            foreach ($param["Tasks"] as $key => $value){
+                $obj = new AsyncRecognitionTaskInfo();
+                $obj->deserialize($value);
+                array_push($this->Tasks, $obj);
+            }
         }
     }
 }
