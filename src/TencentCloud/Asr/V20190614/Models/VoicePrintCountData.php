@@ -18,7 +18,7 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 统计返回注册数量结构
+ * 统计返回[说话人注册数量](https://cloud.tencent.com/document/product/1093/96061#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0)
  *
  * @method integer getTotal() 获取总数
 注意：此字段可能返回 null，表示取不到有效值。

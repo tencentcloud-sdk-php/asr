@@ -18,7 +18,7 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 音频流异步识别任务列表
+ * [音频流异步识别任务列表](https://cloud.tencent.com/document/product/1093/52060#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0)
  *
  * @method array getTasks() 获取任务列表
 注意：此字段可能返回 null，表示取不到有效值。
