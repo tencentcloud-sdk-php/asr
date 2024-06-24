@@ -18,7 +18,7 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * VoicePrintEnroll请求参数结构体
+ * VoicePrintGroupVerify请求参数结构体
  *
  * @method integer getVoiceFormat() 获取音频格式 0: pcm, 1: wav
  * @method void setVoiceFormat(integer $VoiceFormat) 设置音频格式 0: pcm, 1: wav
@@ -26,12 +26,12 @@ use TencentCloud\Common\AbstractModel;
  * @method void setSampleRate(integer $SampleRate) 设置音频采样率，目前支持16000，单位：Hz，必填
  * @method string getData() 获取音频数据, base64 编码, 音频时长不能超过30s，数据大小不超过2M
  * @method void setData(string $Data) 设置音频数据, base64 编码, 音频时长不能超过30s，数据大小不超过2M
- * @method string getSpeakerNick() 获取说话人昵称  不超过32字节
- * @method void setSpeakerNick(string $SpeakerNick) 设置说话人昵称  不超过32字节
- * @method string getGroupId() 获取分组id, 仅支持大小写字母和下划线的组合，不超过128个字符
- * @method void setGroupId(string $GroupId) 设置分组id, 仅支持大小写字母和下划线的组合，不超过128个字符
+ * @method string getGroupId() 获取分组id, 支持数字，字母，下划线，长度不超过128
+ * @method void setGroupId(string $GroupId) 设置分组id, 支持数字，字母，下划线，长度不超过128
+ * @method integer getTopN() 获取返回打分结果降序排列topN, TopN大于0， 小于可创建声纹最大数量
+ * @method void setTopN(integer $TopN) 设置返回打分结果降序排列topN, TopN大于0， 小于可创建声纹最大数量
  */
-class VoicePrintEnrollRequest extends AbstractModel
+class VoicePrintGroupVerifyRequest extends AbstractModel
 {
     /**
      * @var integer 音频格式 0: pcm, 1: wav
@@ -49,21 +49,21 @@ class VoicePrintEnrollRequest extends AbstractModel
     public $Data;
 
     /**
-     * @var string 说话人昵称  不超过32字节
-     */
-    public $SpeakerNick;
-
-    /**
-     * @var string 分组id, 仅支持大小写字母和下划线的组合，不超过128个字符
+     * @var string 分组id, 支持数字，字母，下划线，长度不超过128
      */
     public $GroupId;
+
+    /**
+     * @var integer 返回打分结果降序排列topN, TopN大于0， 小于可创建声纹最大数量
+     */
+    public $TopN;
 
     /**
      * @param integer $VoiceFormat 音频格式 0: pcm, 1: wav
      * @param integer $SampleRate 音频采样率，目前支持16000，单位：Hz，必填
      * @param string $Data 音频数据, base64 编码, 音频时长不能超过30s，数据大小不超过2M
-     * @param string $SpeakerNick 说话人昵称  不超过32字节
-     * @param string $GroupId 分组id, 仅支持大小写字母和下划线的组合，不超过128个字符
+     * @param string $GroupId 分组id, 支持数字，字母，下划线，长度不超过128
+     * @param integer $TopN 返回打分结果降序排列topN, TopN大于0， 小于可创建声纹最大数量
      */
     function __construct()
     {
@@ -90,12 +90,12 @@ class VoicePrintEnrollRequest extends AbstractModel
             $this->Data = $param["Data"];
         }
 
-        if (array_key_exists("SpeakerNick",$param) and $param["SpeakerNick"] !== null) {
-            $this->SpeakerNick = $param["SpeakerNick"];
-        }
-
         if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
             $this->GroupId = $param["GroupId"];
+        }
+
+        if (array_key_exists("TopN",$param) and $param["TopN"] !== null) {
+            $this->TopN = $param["TopN"];
         }
     }
 }

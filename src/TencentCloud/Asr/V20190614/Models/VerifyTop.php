@@ -18,35 +18,47 @@ namespace TencentCloud\Asr\V20190614\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 统计返回[说话人注册数量](https://cloud.tencent.com/document/product/1093/96061#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0)
+ * 声纹组对比结果top数据
  *
- * @method integer getTotal() 获取总数
+ * @method string getScore() 获取相似度打分
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTotal(integer $Total) 设置总数
+ * @method void setScore(string $Score) 设置相似度打分
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getVoicePrintList() 获取说话人id列表
+ * @method string getVoicePrintId() 获取说话人id
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setVoicePrintList(array $VoicePrintList) 设置说话人id列表
+ * @method void setVoicePrintId(string $VoicePrintId) 设置说话人id
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getSpeakerId() 获取说话人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSpeakerId(string $SpeakerId) 设置说话人昵称
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class VoicePrintCountData extends AbstractModel
+class VerifyTop extends AbstractModel
 {
     /**
-     * @var integer 总数
+     * @var string 相似度打分
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Total;
+    public $Score;
 
     /**
-     * @var array 说话人id列表
+     * @var string 说话人id
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $VoicePrintList;
+    public $VoicePrintId;
 
     /**
-     * @param integer $Total 总数
+     * @var string 说话人昵称
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $VoicePrintList 说话人id列表
+     */
+    public $SpeakerId;
+
+    /**
+     * @param string $Score 相似度打分
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $VoicePrintId 说话人id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $SpeakerId 说话人昵称
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -62,17 +74,16 @@ class VoicePrintCountData extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
-            $this->Total = $param["Total"];
+        if (array_key_exists("Score",$param) and $param["Score"] !== null) {
+            $this->Score = $param["Score"];
         }
 
-        if (array_key_exists("VoicePrintList",$param) and $param["VoicePrintList"] !== null) {
-            $this->VoicePrintList = [];
-            foreach ($param["VoicePrintList"] as $key => $value){
-                $obj = new VoicePrintBaseData();
-                $obj->deserialize($value);
-                array_push($this->VoicePrintList, $obj);
-            }
+        if (array_key_exists("VoicePrintId",$param) and $param["VoicePrintId"] !== null) {
+            $this->VoicePrintId = $param["VoicePrintId"];
+        }
+
+        if (array_key_exists("SpeakerId",$param) and $param["SpeakerId"] !== null) {
+            $this->SpeakerId = $param["SpeakerId"];
         }
     }
 }
